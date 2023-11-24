@@ -1,0 +1,122 @@
+POST http://127.0.0.1:8000/users/signup
+Content-Type: application/json
+
+{ "username": "sasssas", "password": "sasaasas", "email": "ses99049@zslsz.com"}
+
+###
+
+POST http://127.0.0.1:8000/users/login
+Content-Type: application/json
+
+{"username": "testik1", "password": "test1k" }
+
+###
+
+GET http://127.0.0.1:8000/users/test_token
+Content-Type: application/json
+Authorization: Token c55d9202dda19f62f656ab8016a613567098fd06
+
+###
+
+POST http://127.0.0.1:8000/users/post_transaction
+Content-Type: application/json
+Authorization: Bearer 0fdfb8e022c1c2533b2f30c97f225e2f903f9754
+
+{"category": "entertainment ", "amount": "-1000","time":"2023-11-26", "description": "", "currency": "zl"}
+###
+
+GET http://127.0.0.1:8000/users/get_transaction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTg2NjAzLCJpYXQiOjE3MDA4NDEwMDMsImp0aSI6IjMyMGY1N2U1ZWEyNDQ3MGJiNDhkZTQ1N2E5N2EwZDUyIiwidXNlcl9pZCI6Mn0.R-8dc3lzaGo5fic-J7mdSSw_vvn5GkJrlKLnZ4bybn8
+
+{"end_amount":"10000","start_amount":"-10000", "start_time": "2023-10-21 00:00:00", "end_time": "2023-11-15 00:00:00"}
+###
+
+GET http://127.0.0.1:8000/users/sort_by_category
+Content-Type: application/json
+Authorization: Token 0fdfb8e022c1c2533b2f30c97f225e2f903f9754
+
+{"category":"superkruta","category": "kategoria" }
+
+### в sort_by_category можно получить транзакции за одну категорию
+
+
+GET http://127.0.0.1:8000/users/procent_of_categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTg2NjAzLCJpYXQiOjE3MDA4NDEwMDMsImp0aSI6IjMyMGY1N2U1ZWEyNDQ3MGJiNDhkZTQ1N2E5N2EwZDUyIiwidXNlcl9pZCI6Mn0.R-8dc3lzaGo5fic-J7mdSSw_vvn5GkJrlKLnZ4bybn8
+
+
+###
+
+
+### возвращает инфу за после 30 дней,там впринципе все понятно,разберешься
+
+GET http://127.0.0.1:8000/users/month_transaction_info
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTgxODQ4LCJpYXQiOjE3MDA4MzYyNDgsImp0aSI6IjM5ODdlNmIyOTQ1MzQwYTI4MmVmNDk5MTAzNWRlYTVmIiwidXNlcl9pZCI6Mn0.V6HS9cxDEc4xEEM3p2NablQHb55Vk8g1Xft1AapkeZw
+
+
+{"time": "2023-10"}
+
+
+### возвращает две колонки,ds - время в милисекундах и прогнозируемый остаток на следующие 30 дней,на js преобразуешь просто всё там это не сложно делается
+
+    
+GET http://127.0.0.1:8000/users/forecast_transaction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwOTgxNTkwLCJpYXQiOjE3MDA2MzU5OTAsImp0aSI6IjJjMTRmYjc3YzIzMzRmZjNiOTZjNjIxZWY4ZTc3YzFjIiwidXNlcl9pZCI6Mn0.1AMalbYJ_jnP0jh0Hj16vV8MaKai_m8wrr9jN23Ck68
+
+###
+POST http://127.0.0.1:8000/users/post_task
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTg5Mzk4LCJpYXQiOjE3MDA4NDM3OTgsImp0aSI6IjNjYTM4YTFjNDBmYTQzMTJiMzQwZDI0MzQ0NzI3MTg5IiwidXNlcl9pZCI6Mn0.szR1WyRWorCU-phZsAZGm9iL_0a33Y2EcwghQh1LhIc
+
+{"title":"title", "description":"123", "deadline":"2023-11-27 00:10:00"}
+
+
+###
+POST http://127.0.0.1:8000/users/update_task
+Content-Type: application/json
+Authorization: Token 0fdfb8e022c1c2533b2f30c97f225e2f903f9754
+
+{"id": "3", "complete":"1"}
+
+###
+POST http://127.0.0.1:8000/users/delete_task
+Content-Type: application/json
+Authorization: Token 0fdfb8e022c1c2533b2f30c97f225e2f903f9754
+
+{"id": "3"}
+
+
+###
+
+GET http://127.0.0.1:8000/users/get_transaction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwNTgwOTAxLCJpYXQiOjE3MDA1ODA2MDEsImp0aSI6IjAwNDBhODk0MGYxZjRhZTY5Mjg3M2I0NTNhMDVlYTliIiwidXNlcl9pZCI6Mn0.4DWYlW3j1Zx5XfEfc1ns3qIsd-FJNUTrzRVkiPcr0JA
+
+
+{}
+###
+
+
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "testik1",
+    "password": "test1k"
+}
+
+###
+
+POST http://127.0.0.1:8000/users/signupconfirm/NDY/by4vi5-8c8e90460e5e0a8fa91344f317012ed8/
+Content-Type: application/json
+
+{"username":"rabotaisuka","password":"asd"}
+
+
+###
+GET http://127.0.0.1:8000/users/get_task/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTgxODQ4LCJpYXQiOjE3MDA4MzYyNDgsImp0aSI6IjM5ODdlNmIyOTQ1MzQwYTI4MmVmNDk5MTAzNWRlYTVmIiwidXNlcl9pZCI6Mn0.V6HS9cxDEc4xEEM3p2NablQHb55Vk8g1Xft1AapkeZw
