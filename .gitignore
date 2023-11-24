@@ -1,0 +1,4 @@
+users/__pycache__/
+users/migrations/
+users/db.sqlite3
+*.pyc
