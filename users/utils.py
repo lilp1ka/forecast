@@ -32,3 +32,17 @@ def send_verif_up_mail(request, user):
     send_mail(subject,message,email_from,recipient_list)
     email = request.data['email']
     print('uidb64', uidb64, 'token', token)
+    
+    
+def resset_pass_mail(email, user):
+    uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+    token = default_token_generator.make_token(user)
+    confirmation_url = f"{BASE_URL}/users/resetpass/{uidb64}/{token}/"
+    print('====================================================')
+    print(confirmation_url)
+    subject = 'Budget Predict Verify'    
+    message = f'Hi, {user.username}, you can change your password by following this link {confirmation_url} '
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [email]
+    send_mail(subject,message,email_from,recipient_list)
+    print('uidb64', uidb64, 'token', token)

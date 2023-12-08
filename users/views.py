@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from IPython.display import display
 from prophet import Prophet
 from django.contrib.auth.tokens import default_token_generator
-from users.utils import send_verif_up_mail
+from users.utils import send_verif_up_mail, resset_pass_mail
 from django.utils.http import urlsafe_base64_decode
 #------------Auth------------
 @api_view(['POST'])
@@ -48,8 +48,6 @@ def mailconfirm(request,uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
         user = User.objects.get(pk=uid)
-        print('==========================================')
-        print(uid,user)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
     
@@ -59,6 +57,23 @@ def mailconfirm(request,uidb64, token):
         return Response('email confirmed')
     else:
         return Response('smth went wrong')
+
+@api_view(['POST'])
+def wannaresetpass(request):
+    email = request.data['email']
+    user = User.objects.get(email = email)
+    resset_pass_mail(email, user)
+@api_view(['POST'])
+def resetpassword(request, token, uidb64): 
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = User.objects.get(pk=uid)
+        newpass = request.data.get('new_password')
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    user.set_password(newpass)
+    user.save()
+    return Response('password changed', status=status.HTTP_200_OK)
 
 #-------------Transactions--------------
 @api_view(['GET'])
@@ -131,6 +146,22 @@ def post_transaction(request):
         print("Error:", str(e))
         return Response("An error occurred. Transaction not added.")
     
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def delete_transaction(request):
+    try:
+        filters = {
+            'id': request.data['id'],
+            'user_id': request.user
+        }
+        
+        transaction_to_delete = Transaction.objects.filter(**filters)
+        transaction_to_delete.delete()
+        return Response('delete', status=status.HTTP_200_OK)
+    except:
+        return Response('something went wrong with updating task', status=status.HTTP_400_BAD_REQUEST)        
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

@@ -64,7 +64,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
     
 GET http://127.0.0.1:8000/users/forecast_transaction
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwOTgxNTkwLCJpYXQiOjE3MDA2MzU5OTAsImp0aSI6IjJjMTRmYjc3YzIzMzRmZjNiOTZjNjIxZWY4ZTc3YzFjIiwidXNlcl9pZCI6Mn0.1AMalbYJ_jnP0jh0Hj16vV8MaKai_m8wrr9jN23Ck68
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxOTAwNjY2LCJpYXQiOjE3MDE1NTUwNjYsImp0aSI6IjhmYzNiOTE1ZTBhNTRjNzY5MjNiZGQ4NDliN2ZiNTc4IiwidXNlcl9pZCI6Mn0.hhweW5vxaIlsL3htqt80dPonBN83MGvObU0H2PFT83Q
 
 ###
 POST http://127.0.0.1:8000/users/post_task
@@ -120,3 +120,25 @@ Content-Type: application/json
 GET http://127.0.0.1:8000/users/get_task/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMTgxODQ4LCJpYXQiOjE3MDA4MzYyNDgsImp0aSI6IjM5ODdlNmIyOTQ1MzQwYTI4MmVmNDk5MTAzNWRlYTVmIiwidXNlcl9pZCI6Mn0.V6HS9cxDEc4xEEM3p2NablQHb55Vk8g1Xft1AapkeZw
+
+
+###
+POST http://127.0.0.1:8000/users/wannaresetpass/
+Content-Type: application/json
+
+{"email": "oleksii228@mail.com"}
+
+###
+
+POST http://127.0.0.1:8000/users/resetpass/MQ/byuvr9-c98cb7763d2e781c97076eacd569da02/
+Content-Type: application/json
+
+{"new_password": "suka123123123"}
+
+###
+
+POST http://127.0.0.1:8000/users/delete_transaction/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAyMzI1MzE0LCJpYXQiOjE3MDE5Nzk3MTQsImp0aSI6ImQ1ZTlmNTA4OTc4NTQxODg5MjE2MzJkMzY5NTUxMzg2IiwidXNlcl9pZCI6Mn0.B3kDniq6UTA8VJgwU6ZG4Udc__h20DRNmB85c38hO5c
+
+{"id": "36"}
