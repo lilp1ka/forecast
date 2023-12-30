@@ -142,3 +142,33 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAyMzI1MzE0LCJpYXQiOjE3MDE5Nzk3MTQsImp0aSI6ImQ1ZTlmNTA4OTc4NTQxODg5MjE2MzJkMzY5NTUxMzg2IiwidXNlcl9pZCI6Mn0.B3kDniq6UTA8VJgwU6ZG4Udc__h20DRNmB85c38hO5c
 
 {"id": "36"}
+
+###
+
+POST http://127.0.0.1:8000/users/create_phonefriend/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzODE5Njk5LCJpYXQiOjE3MDM0NzQwOTksImp0aSI6IjRmOGE3YWQ2OWU3ZDQwYTQ4ZDdhOWM2YjRlODA2NjRhIiwidXNlcl9pZCI6Mn0.6oEv89CNW8hBAR8YwgkNhVSdCGqEaNodbv0WqrpcA9A
+
+{"fname":"aaaaaaaaaaaaaaaaad","fsurname":"dadad"}
+
+###
+
+GET http://127.0.0.1:8000/users/get_phonefriend/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzODE5Njk5LCJpYXQiOjE3MDM0NzQwOTksImp0aSI6IjRmOGE3YWQ2OWU3ZDQwYTQ4ZDdhOWM2YjRlODA2NjRhIiwidXNlcl9pZCI6Mn0.6oEv89CNW8hBAR8YwgkNhVSdCGqEaNodbv0WqrpcA9A
+
+
+###
+POST http://127.0.0.1:8000/users/update_phonefriend/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzODE5Njk5LCJpYXQiOjE3MDM0NzQwOTksImp0aSI6IjRmOGE3YWQ2OWU3ZDQwYTQ4ZDdhOWM2YjRlODA2NjRhIiwidXNlcl9pZCI6Mn0.6oEv89CNW8hBAR8YwgkNhVSdCGqEaNodbv0WqrpcA9A
+
+{"id":"6","fmail":"soska228@gmail.com","fbirthday":"2021-05-06"}
+
+###
+
+POST http://127.0.0.1:8000/users/delete_phonefriend/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzODE5Njk5LCJpYXQiOjE3MDM0NzQwOTksImp0aSI6IjRmOGE3YWQ2OWU3ZDQwYTQ4ZDdhOWM2YjRlODA2NjRhIiwidXNlcl9pZCI6Mn0.6oEv89CNW8hBAR8YwgkNhVSdCGqEaNodbv0WqrpcA9A
+
+{"id":"6"}

@@ -20,6 +20,16 @@ urlpatterns = [
     re_path('post_task', views.post_task),
     re_path('update_task', views.update_task),
     re_path('get_task', views.get_task),
-    re_path('delete_task', views.delete_task)
+    re_path('delete_task', views.delete_task),
+    #-----PhoneFriendList------
+    re_path('create_phonefriend',views.post_friendphone),
+    re_path('get_phonefriend',views.get_friendlist),
+    re_path('update_phonefriend',views.update_phonefriend),
+    re_path('delete_phonefriend',views.delete_phonefriend),
+    #-----B-Objects------------
+    re_path('create_bobject',views.post_BObject),
+    re_path('get_bobject',views.get_BObject),
+    re_path('update_bobject',views.update_BObject),
+    re_path('delete_bobject',views.delete_BObject)
     
 ]
